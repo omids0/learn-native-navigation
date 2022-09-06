@@ -10,11 +10,36 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="AllCategories" component={CategoriesScreen} />
-          <Stack.Screen name="mealsOverView" component={MealsOverviewScreen} />
+        <Stack.Navigator
+          //It affects all screens
+          screenOptions={{
+            headerSearchBarOptions: true,
+          }}
+        >
+          <Stack.Screen
+            name="AllCategories"
+            component={CategoriesScreen}
+            options={{
+              title: "All Categories",
+
+              headerStyle: { backgroundColor: "red" },
+              headerTintColor: "white",
+              contentStyle: { backgroundColor: "black" },
+            }}
+          />
+          <Stack.Screen
+            name="mealsOverView"
+            component={MealsOverviewScreen}
+            options={({ route, navigation }) => {
+              // ya mitoonim dakhele khode <MealsOverviewScreen /> az navigation.setOptions({}) be jae options estefade kard
+              const catID = route.params.categoryId;
+              return {
+                title: catID,
+              };
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
