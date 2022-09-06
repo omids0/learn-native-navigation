@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import CategoryGrideTile from "../components/CategoryGrideTile";
 import { CATEGORIES } from "../data/dummy-data";
 
