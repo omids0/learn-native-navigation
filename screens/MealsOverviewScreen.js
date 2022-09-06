@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-function MealsOverviewScreen() {
+function MealsOverviewScreen({ route }) {
+  const catID = route.params.categoryId;
+
   return (
     <View style={styles.container}>
-      <Text>MealsOverviewScreen</Text>
+      <Text>MealsOverviewScreen - {catID}</Text>
     </View>
   );
 }

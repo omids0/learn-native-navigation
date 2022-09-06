@@ -5,15 +5,17 @@ import { CATEGORIES } from "../data/dummy-data";
 
 function CategoriesScreen({ navigation }) {
   function renderCategoryItem(itemData) {
-    function onPressedTile() {
-      navigation.navigate("mealsOverView");
+    function handleTilePress() {
+      navigation.navigate("mealsOverView", {
+        categoryId: itemData.item.id,
+      });
     }
 
     return (
       <CategoryGrideTile
         title={itemData.item.title}
         color={itemData.item.color}
-        onPress={onPressedTile}
+        onPress={handleTilePress}
       />
     );
   }
