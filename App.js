@@ -23,7 +23,6 @@ export default function App() {
             component={CategoriesScreen}
             options={{
               title: "All Categories",
-
               headerStyle: { backgroundColor: "red" },
               headerTintColor: "white",
               contentStyle: { backgroundColor: "black" },
@@ -34,9 +33,9 @@ export default function App() {
             component={MealsOverviewScreen}
             options={({ route, navigation }) => {
               // ya mitoonim dakhele khode <MealsOverviewScreen /> az navigation.setOptions({}) be jae options estefade kard
-              const catID = route.params.categoryId;
+              const categoryTitle = route.params.categoryTitle;
               return {
-                title: catID,
+                title: categoryTitle,
               };
             }}
           />
